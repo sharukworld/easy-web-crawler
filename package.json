@@ -1,0 +1,16 @@
+{
+  "name": "easy-web-crawler",
+  "version": "0.0.0",
+  "description": "A node library to crawl the web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "web",
+    "crawler",
+    "easy"
+  ],
+  "author": "Sharuk Ahmed Mazumder <sharukmazumder@outlook.com>",
+  "license": "MIT"
+}
