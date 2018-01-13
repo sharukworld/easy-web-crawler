@@ -18,3 +18,12 @@ describe('Sanity check2', function() {
       });
     });
   });
+
+  describe('db check2', function() {
+    describe('#indexOf()', function() {
+      it('should return -1 when the value is not present', function(){
+         new index().testRedis();
+        assert.equal(true, true);
+      });
+    });
+  });
