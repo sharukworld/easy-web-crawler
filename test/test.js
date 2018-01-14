@@ -4,7 +4,7 @@ const index = require('../index');
 var redis = require('../util/redis-db');
 let db = redis.connect();
 
-let crawl = new index("https://stackoverflow.com", db, 20);
+let crawl = new index("http://coachshark.com/#/catalog", db, 20);
 
 
 describe('Sanity check2', function() {
