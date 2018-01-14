@@ -12,5 +12,8 @@ db.disconnect = function (){
 };
 
 db.instance = function (){
+    if(redis == null){
+        redis = new Redis();
+    }
     return redis;
 };

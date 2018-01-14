@@ -1,29 +1,26 @@
 var assert = require('assert');
 
 const index = require('../index');
+var redis = require('../util/redis-db');
+let db = redis.connect();
 
-describe('Sanity check', function() {
-  describe('#indexOf()', function() {
-    it('should return -1 when the value is not present', function(){
-      assert.equal(-1, [1,2,3].indexOf(4));
-    });
-  });
-});
+let crawl = new index("https://stackoverflow.com", db);
+
 
 describe('Sanity check2', function() {
     describe('#indexOf()', function() {
       it('should return -1 when the value is not present', function(){
-         new index().crawler("https://www.npmjs.com");
+        crawl.startCrawling();
         assert.equal(true, true);
       });
     });
   });
 
-  describe('db check2', function() {
-    describe('#indexOf()', function() {
-      it('should return -1 when the value is not present', function(){
-         new index().testRedis();
-        assert.equal(true, true);
-      });
-    });
-  });
+  // describe('check upserting of link', function() {
+  //   describe('#indexOf()', function() {
+  //     it('should add a link', function(){
+  //       crawl.startCrawling2();
+  //       assert.equal(true, true);
+  //     });
+  //   });
+  // });
