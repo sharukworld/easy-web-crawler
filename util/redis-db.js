@@ -1,9 +1,9 @@
-var Redis = require('ioredis');
+var Redis = require("redis");
 let redis;
 var db = module.exports = {};
 
 db.connect = function (){
-    redis = new Redis();
+    redis =  Redis.createClient();
     return redis;
 };
 
@@ -13,7 +13,7 @@ db.disconnect = function (){
 
 db.instance = function (){
     if(redis == null){
-        redis = new Redis();
+        redis = Redis.createClient();
     }
     return redis;
 };

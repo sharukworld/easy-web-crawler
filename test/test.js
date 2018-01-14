@@ -24,3 +24,11 @@ describe('Sanity check2', function() {
   //     });
   //   });
   // });
+
+  //   describe('check upserting of link', function() {
+  //   describe('#indexOf()', function() {
+  //     it('should add a link', function(){
+  //       crawl.redisTest();
+  //     });
+  //   });
+  // });
