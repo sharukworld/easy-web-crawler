@@ -1,4 +1,5 @@
 let url = require("url");
+var ApplicationConstant = require('../constant/ApplicationConstant');
 
 exports.getCompleteLink = function (link, parentLink) {
     if(link == null){
@@ -10,4 +11,14 @@ exports.getCompleteLink = function (link, parentLink) {
         return parsedParentLink.protocol+ "//"+ parsedParentLink.hostname + link;
     }
     return link;
+}
+
+exports.getIsLinkSeededTransactionArray = function (linkArray, seedUrl) {
+    console
+    let linkSeededTransactionArray = [];
+    let vistedStoreName = ApplicationConstant.VISITED_STORE_NAME + seedUrl;
+    for(link in linkArray){
+        linkSeededTransactionArray.push([ApplicationConstant.CHECK_IF_URL_SEEDED, vistedStoreName, link]);
+    }
+   return linkSeededTransactionArray;
 }
