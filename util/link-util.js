@@ -25,10 +25,21 @@ exports.getIsLinkSeededTransactionArray = function (linkArray, seedUrl) {
 exports.getScoreIncrArray = function (linkArray, isScrapped, seedUrl) {
     let scoreIncrArray = [];
     let storeName = ApplicationConstant.TO_BE_VISITED_STORE_NAME + seedUrl;
-   for(let index = 0; index < linkArray.length; index++) {
-     if(isScrapped[index] === 0) {
-        scoreIncrArray.push([ApplicationConstant.INCR_SCORE, storeName, ApplicationConstant.SCORE_INCREMENT_VALUE, linkArray[index]]);
-     }
-   }
-   return scoreIncrArray;
+    for (let index = 0; index < linkArray.length; index++) {
+        if (isScrapped[index] === 0) {
+            scoreIncrArray.push([ApplicationConstant.INCR_SCORE, storeName, ApplicationConstant.SCORE_INCREMENT_VALUE, linkArray[index]]);
+        }
+    }
+    return scoreIncrArray;
+}
+
+exports.filterLink = function (link, config) {
+    if (link == null || config == null || config.denyDomain == null) {
+        return link;
+    }
+    let parsedLink = url.parse(link);
+    if (config.denyDomain.indexOf(parsedLink.hostname) > -1) {
+        return null;
+    }
+    return link;
 }
