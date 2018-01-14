@@ -2,7 +2,7 @@ let url = require("url");
 var ApplicationConstant = require('../constant/ApplicationConstant');
 
 exports.getCompleteLink = function (link, parentLink) {
-    if (link == null) {
+    if (link == null || !(link.startsWith('/') || url.parse(link).hostname != null)) {
         return;
     }
     let parsedLink = url.parse(link);

@@ -4,7 +4,7 @@ const index = require('../index');
 var redis = require('../util/redis-db');
 let db = redis.connect();
 
-let crawl = new index("http://google.com", db, 10000);
+let crawl = new index("https://www.google.co.in/search?q=sharuk&rlz=1C5CHFA_enIN753IN753&oq=sharuk&aqs=chrome..69i57j69i60l5.3862j0j1&sourceid=chrome&ie=UTF-8", db, 3000);
 
 
 describe('Sanity check2', function() {
