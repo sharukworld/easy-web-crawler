@@ -5,26 +5,19 @@ const crawler = require('../index');
 var redis = require('../util/redis-db');
 let db = redis.connect();
 
-let crawl = new crawler("https://github.com/sharukworld/easy-web-crawler", db, 10);
+let applicationConfig = new config();
+// add more domain to be ignored here.
+applicationConfig.denyDomain = ['www.youtube.com'];
 
+// update the url here to parse other website.
+let crawl = new crawler("https://www.netflix.com/in/", db, 5, applicationConfig);
 
-// describe('Sanity check2', function() {
-//     describe('#indexOf()', function() {
-//       it('should return -1 when the value is not present', function(){
-//         crawl.startCrawling().then(
-//           list => {
-//           }
-//         )
-//       });
-//     });
-//   });
-
-  describe('Denying google.com domain', function() {
-    describe('#indexOf()', function() {
-      it('should return -1 when the value is not present', function(){
-       let  applicationConfig = new config();
-            applicationConfig.denyDomain = ['www.youtube.com'];
-        let crawl = new crawler("https://www.youtube.com", db, 30, applicationConfig).startCrawling();
+describe('Use this to test the program', function () {
+  describe('parse url', function () {
+    it('should parse and store the url into redis', function () {
+      crawl.startCrawling().then((list) => {
+        console.log(list);
       });
     });
   });
+});
