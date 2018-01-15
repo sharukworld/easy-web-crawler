@@ -10,7 +10,7 @@ let applicationConfig = new config();
 applicationConfig.denyDomain = ['www.youtube.com'];
 
 // update the url here to parse other website.
-let crawl = new crawler("https://www.netflix.com/in/", db, 5, applicationConfig);
+let crawl = new crawler("https://code.visualstudio.com/docs/getstarted/keybindings", db, 20, applicationConfig);
 
 describe('Use this to test the program', function () {
   describe('parse url', function () {

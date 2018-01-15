@@ -12,16 +12,16 @@ describe('Sanity check util', function() {
   });
 
   describe('get internal link', function() {
-    describe('#indexOf()', function() {
-      it('should return -1 when the value is not present', function(){
+    describe('append base url and domain', function() {
+      it('should return the complete url', function(){
         assert.equal('http://google.com/test',linkUtil.getCompleteLink("/test","http://google.com/"));
       });
     });
   });
 
   describe('get external link', function() {
-    describe('#indexOf()', function() {
-      it('should return -1 when the value is not present', function(){
+    describe('return the original link', function() {
+      it('should ignore and return the link passed', function(){
         assert.equal('http://external.com/test',linkUtil.getCompleteLink("http://external.com/test","http://google.com/"));
       });
     });
